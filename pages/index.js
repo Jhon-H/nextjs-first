@@ -1,8 +1,10 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Head from 'next/head';
-import { skills, experiences, projects, post} from '../profile';
+import Image from 'next/image';
 import Link from 'next/link';
+import ryanPhoto from '../public/ryan-ray-profile2.jpeg';
+import { skills, experiences } from '../profile';
 
 function Home() {
   return (
@@ -14,8 +16,14 @@ function Home() {
           <div className='col-md-12 '>
             <div className='card card-body bg-secondary text-light '>
               <div className='row'>
-                <div className='col-md-4'>
-                  <img src='ryan-ray-profile2.jpeg' alt='' className='img-fluid' />
+                <div className='col-md-4' style={{position: 'relative'}}>
+                  <Image
+                    src={ryanPhoto}
+                    alt='profile photo'
+                    className='img-fluid'
+                    layout='fill'
+                    objectFit='cover'
+                  />
                 </div>
                 <div className='col-md-8'>
                   <h1>Jhon Hernandez</h1>
@@ -41,12 +49,12 @@ function Home() {
                         <h5> {skill.name} </h5>
                         <div className='progress'>
                           <div
-                            className="progress-bar"
-                            role="progressbar"
+                            className='progress-bar'
+                            role='progressbar'
                             style={{ width: `${skill.percent}%` }}
-                            aria-valuenow="25"
-                            aria-valuemin="0"
-                            aria-valuemax="100">
+                            aria-valuenow='25'
+                            aria-valuemin='0'
+                            aria-valuemax='100'>
                           </div>
                         </div>
                       </div>
@@ -81,48 +89,6 @@ function Home() {
             </div> {/** col */}
           </div>
         </section>
-
-        {/* Porfolio */}
-        <section>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="card card-body bg-dark">
-                <div className="row">
-                  <div className="col-md-12 my-2">
-                    <h1 className="text-center text-light">Portfolio</h1>
-                  </div>
-                  {projects.map(({ name, description, image }, index) => (
-                    <div className="col-md-4 p-2" key={index}>
-                      <div className="card h-100">
-                        <div className="overflow">
-                          <img
-                            src={`/${image}`}
-                            alt=""
-                            className="card-img-top"
-                          />
-                        </div>
-                        <div className="card-body">
-                          <h3>{name}</h3>
-                          <p>{description}</p>
-                          <a href="#!">Know More</a>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-
-                  <div className="col-md-12 mt-4">
-                    <div className="text-center">
-                      <Link href="/portfolio">
-                        <a className="btn btn-outline-light">More Projects</a>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
       </Layout>
     </>
   )

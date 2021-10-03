@@ -22,7 +22,7 @@ function Error404() {
       <svg>
         <defs>
           <filter id="glow">
-            <fegaussianblur className="blur" result="coloredBlur" stddeviation="4"></fegaussianblur>
+            <fegaussianblur className="blur" result="coloredBlur" stdDeviation="4"></fegaussianblur>
             <femerge>
               <femergenode in="coloredBlur"></femergenode>
               <femergenode in="SourceGraphic"></femergenode>
@@ -32,7 +32,9 @@ function Error404() {
       </svg>
 
       {/* <h2 className='Error_h2'>Page Not Found</h2> */}
-      <Link href='/'><h2 className='Error_h2'> Vamos a casa ! </h2></Link>
+      <Link href='/'>
+        <a className='Error_h2'> Vamos a casa ! </a>
+      </Link>
     </div>
   )
 }
